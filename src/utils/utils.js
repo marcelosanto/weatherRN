@@ -1,4 +1,4 @@
-const data = {
+export const data = {
   temp: 25,
   date: '30/12/2021',
   time: '20:48',
@@ -110,3 +110,17 @@ cloudly_day - nublado de dia
 cloudly_night - nublado de noite
 none_day - erro ao obter mas está de dia
 none_night - erro ao obter mas está de noite */
+
+export const tempIcons = temp => {
+  if (temp == 'snow') return 'snowflake'
+  if (temp == 'hail') return 'cloudversify'
+  if (temp == 'rain') return 'cloud-rain'
+  if (temp == 'fog') return 'smog'
+  if (temp == 'clear_day') return 'sun'
+  if (temp == 'clear_night') return 'moon'
+  if (temp == 'cloud') return 'cloud'
+  if (temp == 'cloudly_day') return 'cloud-sun'
+  if (temp == 'cloudly_night') return 'cloud-moon'
+  if (temp == 'none_day') return 'sun'
+  if (temp == 'none_night') return 'moon'
+}

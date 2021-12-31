@@ -1,18 +1,27 @@
 import React from 'react'
-import { View, Text, SafeAreaView } from 'react-native'
+import { View, Text } from 'react-native'
 
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
+import { tempIcons } from '../utils/utils'
 
-export default function CardTempo() {
-  const Ficon = () => <FontAwesome5 name={'sun'} light size={128} solid />
+export default function CardTempo({ data }) {
+  const TempIcon = () => (
+    <FontAwesome5
+      name={tempIcons(data.condition_slug)}
+      light
+      size={128}
+      solid
+    />
+  )
 
   return (
     <View
       style={{
-        height: 300,
+        height: 400,
         width: '100%',
         alignItems: 'center',
         justifyContent: 'space-around',
+        marginBottom: 30,
       }}>
       <View
         style={{
@@ -20,8 +29,8 @@ export default function CardTempo() {
           justifyContent: 'center',
           backgroundColor: '#000',
           borderRadius: 10,
-          width: 150,
-          height: 25,
+          width: 100,
+          height: 30,
           marginTop: 30,
           marginBottom: 30,
         }}>
@@ -30,7 +39,7 @@ export default function CardTempo() {
             color: 'yellow',
             fontWeight: 'bold',
           }}>
-          Serra Dourada - ES
+          {data.city}
         </Text>
       </View>
       <View
@@ -38,15 +47,15 @@ export default function CardTempo() {
           alignItems: 'center',
           justifyContent: 'space-around',
           width: '100%',
-          height: 200,
+          height: 250,
         }}>
-        <Text>30/12/2021</Text>
-        <Ficon />
+        <Text>{data.date}</Text>
+        <TempIcon />
       </View>
 
       <View style={{ alignItems: 'center', marginTop: 30 }}>
-        <Text style={{ fontSize: 50 }}>30ºC</Text>
-        <Text>Dia limpo</Text>
+        <Text style={{ fontSize: 50 }}>{data.temp}ºC</Text>
+        <Text>{data.description}</Text>
       </View>
     </View>
   )
